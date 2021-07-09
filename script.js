@@ -1,8 +1,11 @@
 const arrayColors = ['red','blue','black','green']
 const arrayColorsText = ['Красный','Синий','Черный','Зеленый']
 // -----------------------------------------
-const givenAnswerScreen = document.querySelector('.givenAnswer')
+const startTimerScene = document.querySelector('.startTimer')
 
+// -----------------------------------------
+const answerScene = document.querySelector('.answerScene')
+const answerSymb = document.querySelector('.answerSymb')
 // -----------------------------------------
 const tutScreen = document.querySelector('#tutorialScreen')
 
@@ -36,19 +39,19 @@ let timeNumbScreen = 3
 
 startBtn.addEventListener('click', (e) => {
     startScreen.classList.add('up')
-    givenAnswerScreen.style.opacity = 1
-    infoBlock.style.opacity = 0
-    cardBlocks.style.opacity = 0
-    confirmBtnsBlocks.style.opacity = 0
+    startTimerScene.style.opacity = '1'
+    infoBlock.style.opacity = '0'
+    cardBlocks.style.opacity = '0'
+    confirmBtnsBlocks.style.opacity = '0'
     const numbInt = setInterval(() => {
         numbStart.textContent = '' + --timeNumbScreen
         if (timeNumbScreen === 0){
             clearInterval(numbInt)
-            givenAnswerScreen.style.opacity = 0
-            givenAnswerScreen.style.zIndex = 0
-            infoBlock.style.opacity = 1
-            cardBlocks.style.opacity = 1
-            confirmBtnsBlocks.style.opacity = 1
+            startTimerScene.style.opacity = '0'
+            startTimerScene.style.zIndex = '0'
+            infoBlock.style.opacity = '1'
+            cardBlocks.style.opacity = '1'
+            confirmBtnsBlocks.style.opacity = '1'
         }
     }, 1000)
 
@@ -130,12 +133,16 @@ function checkEquals(choice){
 
     if (choice === 1 && langChanger(texts[0].textContent) === texts[1].style.color){
         scoreAdding(1)
+        viewAnswer(1)
     } else if (choice === 0 && langChanger(texts[0].textContent) !== texts[1].style.color){
         scoreAdding(1)
+        viewAnswer(1)
     } else if (choice === 1 && langChanger(texts[0].textContent) !== texts[1].style.color){
         scoreAdding(0)
+        viewAnswer(0)
     } else if (choice === 0 && langChanger(texts[0].textContent) === texts[1].style.color){
         scoreAdding(0)
+        viewAnswer(0)
     }
 }
 
@@ -203,6 +210,25 @@ function setTime(time){
 
 }
 
+function viewAnswer(ch){
+    if (ch === 1){
+        answerSymb.classList.add('correctAnswerSymb')
+        answerSymb.classList.remove('incorrectAnswerSymb')
+    } else {
+        answerSymb.classList.add('incorrectAnswerSymb')
+        answerSymb.classList.remove('correctAnswerSymb')
+    }
+}
+
+function viewSomeObject(obj, times){
+    let localInterval = setInterval(() => {
+        obj.style.opacity = '1'
+        if (--times === 0){
+            obj.style.opacity = '0'
+            clearInterval(localInterval)
+        }
+    }, 1000)
+}
 
 function langChanger(str){
     switch (str){

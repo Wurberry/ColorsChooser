@@ -270,7 +270,7 @@ h5 {
 }
 
 /* --------------------------- Time scene -------------------------*/
-.givenAnswer {
+.startTimer {
     display: block;
     width: 632px;
     height: 478px;
@@ -296,6 +296,35 @@ h5 {
     display: block;
     font-size: 50px;
     padding-top: 12px;
+}
+
+/* --------------- Answer scene -------------------*/
+
+.answerScene {
+    display: block;
+    width: 632px;
+    height: 478px;
+    position: absolute;
+    z-index: 10000;
+    text-align: -webkit-center;
+    vertical-align: center;
+}
+
+.answerSymb {
+    display: block;
+    position: relative;
+    width: 130px;
+    height: 130px;
+    margin: 28% auto;
+    opacity: 0;
+}
+
+.correctAnswerSymb {
+    background-image: url("img/correctAnswer.png");
+}
+
+.incorrectAnswerSymb {
+    background-image: url("img/incorrectAnswer.png");
 }
 
 /* --------------- bottom -------------------*/
