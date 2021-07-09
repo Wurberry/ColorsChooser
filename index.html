@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ColorChooser</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="screen up" id="tutorialScreen">
+    <div class="board tutBoard">
+
+    </div>
+</div>
+
+<div class="screen" id="startScreen">
+    <div class="board startBoard">
+        <p class="tutorText">Совпадает ли название цвета на левой карточке с цветом текста на правой карточке?</p>
+        <div class="tutorBtns">
+            <button class="tutBtn">Пройти обучение</button>
+            <button class="startBtn">Начать тренировку</button>
+        </div>
+    </div>
+</div>
+
+<div class="screen" id="gameScreen">
+    <div class="board gsBoard">
+        <div class="givenAnswer">
+            <div class="gACircle">
+                <span class="numberInAnswerCircle">3</span>
+            </div>
+        </div>
+
+        <div class="gbInfoBlock">
+            <div class="gbibTime">
+                <div class="gbibTexts">
+                    ВРЕМЯ
+                </div>
+                <div class="gbibValues timeText">
+                    00:00
+                </div>
+            </div>
+            <div class="gbibLevel">
+                <div class="gbibTexts">
+                    УРОВЕНЬ
+                </div>
+                <div class="gbibValues">
+                    1-2
+                </div>
+            </div>
+            <div class="gbibScore">
+                <div class="gbibTexts">
+                    ОЧКИ
+                </div>
+                <div class="gbibValues scoreText">
+                    0
+                </div>
+            </div>
+            <div class="gbibBonus">
+                <div class="gbibTexts">
+                    БОНУС
+                </div>
+                <div class="gbibValues">
+                    <span class="bonusCircles">
+                        <span class="bonusCircle bCFill" id="1"></span>
+                        <span class="bonusCircle" id="2"></span>
+                        <span class="bonusCircle" id="3"></span>
+                        <span class="bonusCircle" id="4"></span>
+                        <span class="bonusCircle" id="5"></span>
+                    </span>
+                    <span class="bonusXText">x1</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="gbGame">
+            <h3 class="gbGameText"> Совпадает ли название цвета на левой карточке с цветом текста на правой карточке? </h3>
+            <div class="gbCards">
+                <div class="gbcValueCard cardBox">
+                    <h5>Значение</h5>
+<!--                    <div class="gbcValue card"></div>-->
+                </div>
+                <div class="gbcColorCard cardBox">
+                    <h5>Цвет</h5>
+<!--                    <div class="gbcColor card"></div>-->
+                </div>
+            </div>
+        </div>
+
+        <div class="gbConfirmBtns">
+            <div class="gANo">
+                <button class="gameAnswerBtn gameBtnNo">
+                    <span class="gAnswerArrow arrowLeft"></span>
+                    <span>НЕТ</span>
+                </button>
+            </div>
+            <div class="gAYes">
+                <button class="gameAnswerBtn gameBtnYes">
+                    <span>ДА</span>
+                    <span class="gAnswerArrow arrowRight"></span>
+                </button>
+            </div>
+        </div>
+
+        <div class="gsHelpBtns">
+            <button class="helpBtn">info</button>
+            <button class="helpBtn">volume</button>
+            <button class="helpBtn">hint</button>
+        </div>
+    </div>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

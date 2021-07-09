@@ -1,0 +1,318 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    color: #fff;
+    font-family: 'Open Sans', sans-serif;
+    height: 100vh;
+    overflow: hidden;
+    margin: 0;
+    text-align: center;
+}
+
+.screen {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100vw;
+    transition: margin 0.5s ease-out;
+    background: linear-gradient(90deg, #29323C 0%, #485563 100%);
+}
+
+.screen.up {
+    margin-top: -100vh;
+}
+
+.board {
+    display: block;
+    width: 632px;
+    height: 478px;
+    background-image: url(img/StartBackground.png);
+    background-repeat: round;
+    position: absolute;
+}
+
+/* ------------------ Start Screen ---------------- */
+.startBoard {
+
+}
+
+p .tutorText {
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+
+.tutorText {
+    display: block;
+    align-self: center;
+    max-width: 460px;
+    font-size: 21px;
+    text-align: center;
+    color: #fff;
+    margin: 130px auto;
+    padding: 20px 0;
+}
+
+.tutorBtns {
+    display: flex;
+    margin: 0 90px 50px;
+    font-size: 0;
+    text-align: center;
+    justify-content: space-evenly;
+}
+
+.startBtn {
+    color: #333;
+    background: hsla(0,0%,100%,.8);
+}
+
+.startBtn:hover {
+    cursor: pointer;
+    background-color: #fff;
+}
+
+.tutBtn {
+    background: transparent;
+    color: #fff;
+}
+
+.tutBtn:hover {
+    cursor: pointer;
+    border-color: #fff;
+}
+
+.tutorBtns > button {
+    display: inline-block;
+    vertical-align: top;
+    width: 100%;
+    max-width: 210px;
+    text-align: center;
+    padding: 10px;
+    border: 2px solid hsla(0,0%,100%,.8);
+    border-radius: 50px;
+    font-size: 12px;
+    text-transform: uppercase;
+    font-weight: 600;
+    line-height: 1.4;
+    letter-spacing: .5px;
+}
+
+/* ----------------- Game screen ---------------- */
+
+.gbInfoBlock {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 445px;
+    min-width: 288px;
+    width: 100%;
+    height: 32px;
+    padding: 0 16px;
+    top: 0;
+    right: 0;
+    background-color: hsla(0, 0%, 100%, .4);
+    color: #333;
+    z-index: 9999;
+}
+
+.gbibTexts {
+    font-size: 7px;
+    font-weight: 600;
+}
+
+.gbibValues {
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12px;
+    font-weight: 900;
+    font-feature-settings: "tnum";
+    font-variant-numeric: tabular-nums;
+    color: #333;
+}
+
+.bonusCircles > .bonusCircle {
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    margin: 0 -0.5px;
+    border-radius: 50%;
+    border: 1px solid #333;
+}
+
+.bCFill {
+    background-color: #333;
+}
+
+.gbGame {
+    display: block;
+    position: relative;
+    margin-top: 85px;
+}
+
+.gbGameText {
+    margin-top: 0;
+    margin-bottom: 0;
+    padding: 0 20px;
+    font-family: 'Open-Sans', sans-serif;
+    font-size: 22px;
+    font-weight: 500;
+    line-height: 1.4;
+    text-align: center;
+    color: #fff;
+}
+
+.gbCards {
+    display: flex;
+    position: inherit;
+    justify-content: space-around;
+    margin: 50px 45px;
+}
+
+h5 {
+    margin: 0 0 10px;
+    font-size: 15px;
+    font-weight: 500;
+    text-align: center;
+}
+
+.cardBox {
+    width: 215px;
+    height: 160px;
+    display: block;
+    position: relative;
+}
+
+.card {
+    width: 215px;
+    height: 127px;
+    background-color: #ffffff;
+    border-radius: 4px;
+    font-weight: 600;
+    font-size: 30px;
+}
+
+.textInCard {
+    color: black;
+    height: 127px;
+    line-height: 127px;
+}
+
+.gbConfirmBtns {
+    display: flex;
+    justify-content: center;
+    font-size: 0;
+    position: relative;
+    bottom: 0px;
+    z-index: 10001;
+    margin: 20px auto;
+    width: 100%;
+    left: 0;
+}
+
+.gameAnswerBtn {
+    width: 47px;
+    display: inline-flex;
+    vertical-align: top;
+    min-width: 67px;
+    height: 39px;
+    margin-right: 2px;
+    padding: 7px;
+    border: none;
+    outline: none;
+    font-family: Open Sans,Arial,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 1.4;
+    text-transform: uppercase;
+    color: rgba(0,0,0,.5);
+    border-radius: 0;
+    background: #1a171b;
+    background: hsla(0,0%,100%,.3);
+    cursor: pointer;
+    justify-content: space-between;
+}
+
+.gAnswerArrow {
+    width: 20px;
+    height: 20px;
+    margin-top: 1px;
+    background-image: url('img/arrow_forBtn.svg');
+    background-repeat: no-repeat;
+    background-position: 50%;
+    color: #333;
+    background-size: 12px;
+    border-radius: 4px;
+    transition: .3s;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.arrowLeft {
+    transform: rotate(270deg);
+}
+
+.arrowRight {
+    transform: rotate(90deg);
+}
+
+.gameBtnYes {
+    padding-left: 10px;
+}
+
+/* --------------------------- Time scene -------------------------*/
+.givenAnswer {
+    display: block;
+    width: 632px;
+    height: 478px;
+    position: absolute;
+    background: hsla(0, 5%, 16%, 0.65);
+    z-index: 100000;
+    text-align: -webkit-center;
+    vertical-align: center;
+    opacity: 0;
+}
+
+.gACircle {
+    display: block;
+    position: relative;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: hsla(0, 0%, 60%, 0.40);
+    margin: 32% auto;
+}
+
+.numberInAnswerCircle {
+    display: block;
+    font-size: 50px;
+    padding-top: 12px;
+}
+
+/* --------------- bottom -------------------*/
+
+.gsHelpBtns {
+    width: 632px;
+    height: 25px;
+    display: flex;
+    position: absolute;
+    text-align: center;
+    flex: auto;
+    justify-content: center;
+    bottom: -40px;
+}
+
+.helpBtn {
+    display: block;
+    position: relative;
+}
+
