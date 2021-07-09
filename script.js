@@ -16,9 +16,12 @@ const tutBtn = document.querySelector('.tutBtn')
 const numbStart = document.querySelector('.numberInAnswerCircle')
 // -----------------------------------------
 const gameScreen = document.querySelector('#gameScreen')
+const gsBoard = document.querySelector('.gsBoard')
 const infoBlock = document.querySelector('.gbInfoBlock')
 const cardBlocks = document.querySelector('.gbGame')
 const confirmBtnsBlocks = document.querySelector('.gbConfirmBtns')
+const helpsBtns = document.querySelector('.gsHelpBtns')
+
 const boxCardValue = document.querySelector('.gbcValueCard')
 const boxCardColor = document.querySelector('.gbcColorCard')
 const btnYes = document.querySelector('.gameBtnYes')
@@ -43,6 +46,7 @@ startBtn.addEventListener('click', (e) => {
     infoBlock.style.opacity = '0'
     cardBlocks.style.opacity = '0'
     confirmBtnsBlocks.style.opacity = '0'
+    helpsBtns.style.opacity = '0'
     const numbInt = setInterval(() => {
         numbStart.textContent = '' + --timeNumbScreen
         if (timeNumbScreen === 0){
@@ -52,27 +56,23 @@ startBtn.addEventListener('click', (e) => {
             infoBlock.style.opacity = '1'
             cardBlocks.style.opacity = '1'
             confirmBtnsBlocks.style.opacity = '1'
+            helpsBtns.style.opacity = '1'
+            animViewMovementInfoBlock(infoBlock, 320)
         }
     }, 1000)
 
-    const gameTimer = setTimeout(() => {
-        createCard()
-
-    }, 3000)
+    const gameTimer = setTimeout(() => createCard(), 3000)
 
     const timeController = setTimeout(() => {
         let intervalGame = setInterval(() => {
             if (time>0){
-                console.log(--time)
-                setTime(time)
+                setTime(--time)
             }
             if (time === 0){
                 clearInterval(intervalGame)
             }
         }, 1000)
     }, 2000)
-
-
 
 })
 
@@ -115,6 +115,11 @@ function createCard(){
     cardColor.append(text)
     cardValue.append(texta)
 
+    const cardColorBlock = document.querySelector('.gbcColor')
+    const cardValueBlock = document.querySelector('.gbcValue')
+    animViewMovementCard(cardColorBlock, 500)
+    animViewMovementCard(cardValueBlock, 500)
+
     changeText()
 }
 
@@ -123,13 +128,11 @@ function changeText(){
     text.forEach((element) => {
         element.textContent = arrayColorsText[getRandomNumber(0, arrayColorsText.length - 1)]
         element.style.color = arrayColors[getRandomNumber(0,arrayColors.length-1)]
-        // console.log(element)
     })
 }
 
 function checkEquals(choice){
     const texts = document.querySelectorAll('.textInCard')
-    // console.log(texts[0].textContent, texts[1].style.color)
 
     if (choice === 1 && langChanger(texts[0].textContent) === texts[1].style.color){
         scoreAdding(1)
@@ -206,28 +209,85 @@ function setTime(time){
     if (time === 60){
         timeText.textContent = '01:00'
     }
-
-
 }
 
 function viewAnswer(ch){
     if (ch === 1){
         answerSymb.classList.add('correctAnswerSymb')
         answerSymb.classList.remove('incorrectAnswerSymb')
+        answerSymb.style.opacity = '1'
+        viewSomeObject(answerSymb, 500)
     } else {
         answerSymb.classList.add('incorrectAnswerSymb')
         answerSymb.classList.remove('correctAnswerSymb')
+        answerSymb.style.opacity = '1'
+        viewSomeObject(answerSymb, 500)
     }
 }
 
 function viewSomeObject(obj, times){
     let localInterval = setInterval(() => {
         obj.style.opacity = '1'
-        if (--times === 0){
+        if (times === 0){
             obj.style.opacity = '0'
             clearInterval(localInterval)
         }
-    }, 1000)
+        times -= 100
+    }, 100)
+}
+
+function animViewMovementInfoBlock(obj, times){
+    let dist = obj.getBoundingClientRect().top - gsBoard.getBoundingClientRect().top
+    let localInterval = setInterval(() => {
+        obj.style.top = `${dist}px`
+        dist += 2
+        times -= 20
+        if (times === 0){
+            clearInterval(localInterval)
+        }
+    }, 20)
+}
+
+function animViewMovementCard(obj, times){
+    const textsInCards = document.querySelectorAll('.textInCard')
+    let objHeight = obj.getBoundingClientRect().bottom - obj.getBoundingClientRect().top
+    let objWidth = obj.getBoundingClientRect().right - obj.getBoundingClientRect().left
+
+    obj.style.width = '0px'
+    obj.style.height = '40px'
+    textsInCards.forEach((el) => {
+        el.style.opacity = '0'
+    })
+
+    let varWidth = 0
+    let varHeight = 40
+    let step = 20
+    let localInterval = setInterval(() => {
+
+        obj.style.width = `${varWidth}px`
+        if (varWidth < objWidth){
+            varWidth += 10.75
+        }
+
+        if (varWidth === objWidth){
+            obj.style.height = `${varHeight}px`
+            if (varHeight < objHeight){
+                varHeight += 25.4
+            }
+            if (varHeight >= objHeight){
+                obj.style.height = '127px'
+            }
+        }
+
+        times -= step
+        if (times <= 0){
+            textsInCards.forEach((el) => {
+                el.style.opacity = '1'
+            })
+            clearInterval(localInterval)
+        }
+    }, step)
+
 }
 
 function langChanger(str){

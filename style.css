@@ -36,6 +36,7 @@ body {
     background-image: url(img/StartBackground.png);
     background-repeat: round;
     position: absolute;
+    overflow: hidden;
 }
 
 /* ------------------ Start Screen ---------------- */
@@ -118,11 +119,11 @@ p .tutorText {
     width: 100%;
     height: 32px;
     padding: 0 16px;
-    top: 0;
     right: 0;
     background-color: hsla(0, 0%, 100%, .4);
     color: #333;
     z-index: 9999;
+    top: -32px;
 }
 
 .gbibTexts {
@@ -193,8 +194,8 @@ h5 {
 }
 
 .card {
-    width: 215px;
-    height: 127px;
+    /*width: 215px;*/
+    /*height: 127px;*/
     background-color: #ffffff;
     border-radius: 4px;
     font-weight: 600;
@@ -337,7 +338,8 @@ h5 {
     text-align: center;
     flex: auto;
     justify-content: center;
-    bottom: -40px;
+    bottom: 100px;
+    opacity: 0;
 }
 
 .helpBtn {
