@@ -194,8 +194,8 @@ h5 {
 }
 
 .card {
-    /*width: 215px;*/
-    /*height: 127px;*/
+    width: 215px;
+    height: 127px;
     background-color: #ffffff;
     border-radius: 4px;
     font-weight: 600;
