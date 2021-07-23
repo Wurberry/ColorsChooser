@@ -61,7 +61,9 @@ startBtn.addEventListener('click', (e) => {
         }
     }, 1000)
 
-    const gameTimer = setTimeout(() => createCard(), 3000)
+    const gameTimer = setTimeout(() => {
+        createCard()
+    }, 3000)
 
     const timeController = setTimeout(() => {
         let intervalGame = setInterval(() => {
@@ -93,11 +95,13 @@ btnNo.addEventListener('click', (e) => {
 // ------------- func ---------------
 
 function createCard(){
-    const cardColor = document.createElement("div")
+    console.log('dsadad')
+
+    const cardColor = document.createElement('div')
     cardColor.classList.add('gbcColor')
     cardColor.classList.add('card')
 
-    const cardValue = document.createElement("div")
+    const cardValue = document.createElement('div')
     cardValue.classList.add('gbcValue')
     cardValue.classList.add('card')
 
@@ -109,11 +113,11 @@ function createCard(){
     texta.classList.add('textInCard')
     texta.textContent = ''
 
-    boxCardColor.append(cardColor)
-    boxCardValue.append(cardValue)
-
     cardColor.append(text)
     cardValue.append(texta)
+
+    boxCardColor.append(cardColor)
+    boxCardValue.append(cardValue)
 
     const cardColorBlock = document.querySelector('.gbcColor')
     const cardValueBlock = document.querySelector('.gbcValue')
@@ -249,6 +253,7 @@ function animViewMovementInfoBlock(obj, times){
 }
 
 function animViewMovementCard(obj, times){
+    console.log('animation card')
     const textsInCards = document.querySelectorAll('.textInCard')
     let objHeight = obj.getBoundingClientRect().bottom - obj.getBoundingClientRect().top
     let objWidth = obj.getBoundingClientRect().right - obj.getBoundingClientRect().left
